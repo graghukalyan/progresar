@@ -1,0 +1,32 @@
+[tool.poetry]
+name = "progresar"
+version = "0.1.0"
+description = "A helpful tool to expand and grow one's network post an online meeting"
+authors = ["Raghu K Ghadiyaram <https://www.linkedin.com/in/graghukalyan>"]
+license = "LICENSE"
+readme = "README.md"
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+]
+keywords = ["network", "meeting", "invite","connect"]
+packages = [
+    { include = "app" }
+]
+
+[tools.poetry.project.urls]
+Homepage = "https://github.com/graghukalyan/progresar"
+
+[tool.poetry.dependencies]
+python = ">=3.8"
+pytest = "^8.3.3"
+setuptools = "^75.1.0"
+wheel = "^0.44.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+clean = "python:tasks.clean"
