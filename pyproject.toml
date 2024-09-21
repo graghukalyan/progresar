@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "progresar"
 version = "0.1.0"
-description = "A tool to expand and grow one's network post an online meeting"
+description = "A helpful tool to expand and grow one's network post an online meeting"
 authors = ["Raghu K Ghadiyaram <https://www.linkedin.com/in/graghukalyan>"]
 license = "LICENSE"
 readme = "README.md"
