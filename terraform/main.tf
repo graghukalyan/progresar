@@ -11,7 +11,7 @@ resource "kubernetes_namespace" "progresar" {
 resource "kubernetes_deployment" "progresar" {
   metadata {
     name = "progresar-deployment"
-    namespace = kubernetes_namespace.example.metadata[0].name
+    namespace = kubernetes_namespace.progresar.metadata[0].name
   }
 
   spec {
@@ -32,7 +32,7 @@ resource "kubernetes_deployment" "progresar" {
 
       spec {
         container {
-          name  = "example-container"
+          name  = "progresar-container"
           image = "nginx:1.14.2"
 
           port {
