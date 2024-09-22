@@ -1,8 +1,14 @@
+import sys
+import os
 import unittest
-from app.services.network_service import send_invite
-from app.models.user import User
 from unittest.mock import patch
 import io
+
+# Add the project root to the Python path
+project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+sys.path.insert(0, project_root)
+from app.services.network_service import send_invite
+from app.models.user import User
 
 class TestNetworkService(unittest.TestCase):
     @patch('sys.stdout', new_callable=io.StringIO)
