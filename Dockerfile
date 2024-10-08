@@ -1,5 +1,7 @@
-# Use an official Python runtime as a parent image
-FROM python:3.8-slim
+# Use an image supported by Amazon ECR
+FROM public.ecr.aws/docker/library/python:alpine3.19
+
+RUN apk update && apk add --no-cache python3 && rm -rf /var/cache/apk/*
 
 # Set the working directory in the container
 WORKDIR /app
@@ -8,7 +10,8 @@ WORKDIR /app
 COPY . /app
 
 # Install any needed packages specified in requirements.txt
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --upgrade pip
+RUN pip install --no-cache-dir --ignore-installed -r requirements.txt
 
 # Install Poetry
 RUN pip install poetry
@@ -17,7 +20,7 @@ RUN pip install poetry
 RUN poetry install
 
 # Install Nginx
-RUN apt-get update && apt-get install -y nginx
+RUN apk update && apk add --no-cache nginx
 
 # Copy Nginx configuration file
 COPY nginx.conf /etc/nginx/nginx.conf
