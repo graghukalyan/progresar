@@ -2,6 +2,10 @@ provider "aws" {
   region = "us-east-2"
 }
 
+resource "aws_ecr_repository" "side-projects/progresar" {
+  name = "side-projects/progresar"
+}
+
 resource "aws_eks_cluster" "side_projects_cluster" {
   name     = "side-projects-cluster"
   role_arn = aws_iam_role.eks_cluster_role.arn
