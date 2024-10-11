@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: progresar
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: progresar
+  template:
+    metadata:
+      labels:
+        app: progresar
+    spec:
+      containers:
+      - name: progresar
+        image: 577638400606.dkr.ecr.us-east-2.amazonaws.com/side-projects/progresar
+        ports:
+        - containerPort: 80
+        resources:
+          requests:
+            cpu: 100m
+            memory: 256Mi
+          limits:
+            cpu: 100m
+            memory: 256Mi
