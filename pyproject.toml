@@ -12,7 +12,9 @@ classifiers = [
 ]
 keywords = ["network", "meeting", "invite","connect"]
 packages = [
-    { include = "app" }
+    { include = "app" },
+    { include = "app/services" },
+    { include = "app/models" }
 ]
 
 [tools.poetry.project.urls]
