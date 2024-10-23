@@ -11,7 +11,7 @@ progresar_app = FastAPI()
 @progresar_app.post("/prospects")
 async def create_meeting_prospect(prospect: Prospect):
     attendees = create_prospect(prospect)
-    return {"prospect": attendees}
+    return JSONResponse(status_code=201, content={"message": "Successfully fetching attendee details", "item" : attendees})
 
 @progresar_app.get("/")
 def main():
